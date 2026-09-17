@@ -1,0 +1,7 @@
+# merge outputs (large binaries) — regenerate with merge.py
+out/
+*.safetensors
+*.pt
+*.pth
+__pycache__/
+*.pyc

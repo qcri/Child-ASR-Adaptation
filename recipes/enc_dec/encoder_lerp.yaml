@@ -1,0 +1,12 @@
+# Encoder-decoder ASR: linear (weighted-average) merge of the ENCODER.
+merge_method: lerp
+dtype: float32
+parameters:
+  normalize: true
+models:
+  - model: model_B/encoder.safetensors
+    parameters: {weight: 0.2}
+  - model: model_C/encoder.safetensors
+    parameters: {weight: 0.2}
+  - model: model_base/encoder.safetensors
+    parameters: {weight: 0.6}

@@ -1,0 +1,14 @@
+# Encoder-decoder ASR: TIES merge of the DECODER onto the baseline.
+merge_method: ties
+base_model: model_base/decoder.safetensors
+dtype: float32
+parameters:
+  normalize: true
+  int8_mask: true
+models:
+  - model: model_A/decoder.safetensors
+    parameters: {density: 0.2, weight: 0.15}
+  - model: model_B/decoder.safetensors
+    parameters: {density: 0.5, weight: 0.4}
+  - model: model_C/decoder.safetensors
+    parameters: {density: 0.7, weight: 0.5}

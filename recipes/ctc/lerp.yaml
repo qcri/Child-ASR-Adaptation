@@ -1,0 +1,16 @@
+# CTC ASR: linear (weighted-average) merge of the encoder.
+# Weights are normalized by their sum, so they need not add to 1.
+merge_method: lerp
+dtype: float32
+parameters:
+  normalize: true
+models:
+  - model: M0_model/encoder.pt
+    parameters:
+      weight: 0.1
+  - model: B_model/encoder.pt
+    parameters:
+      weight: 0.1
+  - model: C_model/encoder.pt
+    parameters:
+      weight: 0.8

@@ -1,0 +1,20 @@
+# CTC ASR: TIES merge of specialist encoders onto the M0 baseline.
+merge_method: ties
+base_model: M0_model/encoder.pt
+dtype: float16
+parameters:
+  normalize: true
+  int8_mask: true
+models:
+  - model: B_model/encoder.pt
+    parameters:
+      density: 0.6
+      weight: 0.45
+  - model: A_model/encoder.pt
+    parameters:
+      density: 0.3
+      weight: 0.35
+  - model: C_model/encoder.pt
+    parameters:
+      density: 0.4
+      weight: 0.25
